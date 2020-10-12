@@ -15,21 +15,17 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
-/*function makeBoard() {
+function makeBoard() {
   let row = []
-  for (let col = 0; col < WIDTH; col ++) {
+  for (let col = 0; col < WIDTH; col ++) { // make a row array based on number of columns (WIDTH)
     row.push(undefined)
   }
-  for (let y = 0; y < HEIGHT; y ++) {
-    board.push(row)
+  for (let y = 0; y < HEIGHT; y ++) { // combine row arrays into board. make copy of row using spread operator
+    rowCopy = [...row]  //need this line, otherwise all the rows will be referencing the same row
+    board.push(rowCopy)
   }
   return board
-} */
-function makeBoard() {
-  for (let y = 0; y < HEIGHT; y++) {
-    board.push(Array.from({ length: WIDTH })); //???????????????????????????????????????
-  }
-}
+} 
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
@@ -158,7 +154,7 @@ function checkForWin() {
       var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]]; //diagonal to the right win
       var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]]; //diagonal to the left win
 
-      if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
+      if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) { //if any of these win situations are true, return true
         return true;
       }
     }
