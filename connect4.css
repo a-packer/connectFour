@@ -1,11 +1,12 @@
-/* heading */
-
 body {
   margin: 0px;
   padding: 0px;
   background-color: rgb(37, 37, 37);
   height: 100%;
 }
+
+/* heading */
+
 h1 {
   color:rgb(218, 190, 32);
   font-size: 70px;
@@ -23,7 +24,6 @@ h1 {
 }
 
 /* game board table */
-
 
 #gameRoom {
   width: 100vw;
@@ -70,6 +70,8 @@ table {
   height: 80%;
   border-radius: 50%;
 }
+
+/* TODO: Make a function in JS instead of hardcoding drop depth for 6 rows */
 @keyframes row5 {
   from {
     position: relative;
@@ -198,5 +200,4 @@ i {
 }
 .fullColumn {
   opacity: .5;
-  color: black;
 }

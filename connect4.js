@@ -86,17 +86,15 @@ function placeInTable(x, y) {
   const piece = document.createElement('div');
   piece.classList.add('piece');
   piece.classList.add(`p${currPlayer}`);
-  piece.style.animationName = `row${y}`;
-  console.log(piece.style.animationName);
-  piece.style.top = -50 * (y + 2);
+  piece.style.animationName = `row${y}`; //animate drop depth based on row#
+  piece.style.top = -50 * (y + 2); //(top is refering to top of table (each square is 50px + 2 for the space between)
 
-  const spot = document.getElementById(`${y}-${x}`);
+  const spot = document.getElementById(`${y}-${x}`); //location for piece to drop to
   spot.append(piece);
 }
 
 /** endGame: announce game end */
 function endGame(msg) {
-  // TODO: pop up alert message
   alert(msg)
 }
 
@@ -143,7 +141,7 @@ function checkForWin() {
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
 
-    return cells.every(
+    return cells.every( //check every cell on the board for a 1 or 2 (piece played)
       ([y, x]) =>
         y >= 0 &&
         y < HEIGHT &&
@@ -153,14 +151,12 @@ function checkForWin() {
     );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
-
   for (var y = 0; y < HEIGHT; y++) { 
     for (var x = 0; x < WIDTH; x++) {
-      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
+      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]]; //horizonal win
+      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]]; //vertical win
+      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]]; //diagonal to the right win
+      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]]; //diagonal to the left win
 
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
