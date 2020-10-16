@@ -76,6 +76,8 @@ table {
 1 general animation in .piece class
 translate y: look at height of table in pixels for the from then y to 0
 
+or use variables 
+
 */
 
 @keyframes row5 {
