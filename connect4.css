@@ -71,7 +71,13 @@ table {
   border-radius: 50%;
 }
 
-/* TODO: Make a function in JS instead of hardcoding drop depth for 6 rows */
+/* TODO: Make a function in JS instead of hardcoding drop depth for 6 rows 
+
+1 general animation in .piece class
+translate y: look at height of table in pixels for the from then y to 0
+
+*/
+
 @keyframes row5 {
   from {
     position: relative;
