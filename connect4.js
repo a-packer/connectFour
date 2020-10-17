@@ -95,7 +95,7 @@ function placeInTable(x, y) {
 
 /** endGame: announce game end */
 function endGame(msg) {
-  alert(msg)
+  setTimeout(() => {alert(msg);}, 1000)
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -114,15 +114,19 @@ function handleClick(evt) {
   board[y][x] = currPlayer; // y-row, x-column
   placeInTable(x, y);
 
+  let refreshNote = document.getElementById("refresh");
 
   // check for win
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    board = []; // makes it so the players can't play anymore.
+    refreshNote.classList.add("gameOverNote"); // makes game over refresh div visible
+    return endGame(`Player ${currPlayer} won! Refresh page to start new game. Best two out of three!`);
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
   if (board.every((row) => row.every(boardSquare => boardSquare == 1 || boardSquare == 2))) {
+    board = []; // makes it so the players can't play anymore.
+    refreshNote.classList.add("gameOverNote"); // makes game over refresh div visibl
     return endGame("It's a tie!");
   }
 

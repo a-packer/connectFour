@@ -48,7 +48,7 @@ h1 {
   height: 50px;
   background-color: white;
   border: solid 2px #666;
-  border-radius: 3px;
+  border-radius: 50%;
   box-shadow: 2px 2px 2px rgb(0,0,0,0.1);
 }
 table {
@@ -57,6 +57,7 @@ table {
   background-color: rgb(218, 190, 32);
   border: solid 2px #666;
   padding: 10px;
+  padding: 20px;
   box-shadow: 0px 0px 15px 15px rgb(0,0,0,0.5);
 }
 
@@ -71,14 +72,12 @@ table {
   border-radius: 50%;
 }
 
-/* TODO: Make a function in JS instead of hardcoding drop depth for 6 rows 
+/* TODO: refactor @keyframes code
 
 1 general animation in .piece class
 translate y: look at height of table in pixels for the from then y to 0
 
-or use variables 
-
-*/
+or use CSS variables ?? */
 
 @keyframes row5 {
   from {
@@ -177,6 +176,7 @@ or use variables
   }
 }
 
+
 .piece.p1 {
   background-color: rgb(211, 35, 35);
   animation-duration: 1s;
@@ -209,3 +209,17 @@ i {
 .fullColumn {
   opacity: .5;
 }
+
+
+.gamePlay {
+  display: none;
+}
+.gameOverNote {
+  display: block;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
